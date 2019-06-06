@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.roytuts.springmvc.dao.ResourceDao;
+import com.roytuts.springmvc.model.InterviwerVO;
 import com.roytuts.springmvc.model.ResourceVo;
 
 @Service
@@ -13,10 +14,6 @@ public class ResourceService {
 	
 	@Autowired
 	private ResourceDao resourceDao;
-	
-	public ResourceVo getResource(final int id) {
-		return resourceDao.getResource(id);
-	}
 
 	public List<ResourceVo> getResources() {
 		return resourceDao.getResources();
@@ -32,6 +29,15 @@ public class ResourceService {
 
 	public void deleteResource(final int id) {
 		resourceDao.deleteResource(id);
+	}
+
+	public ResourceVo ResourcesDetails(String pJobCode) {
+		ResourceVo resourceVo =resourceDao.getResourceDetails(pJobCode);
+		return resourceVo;
+	}
+
+	public void addInterviewerToResource(String pJobCode , InterviwerVO interviewVo) {
+		resourceDao.addInterviewerToResource(pJobCode, interviewVo);
 	}
 
 
