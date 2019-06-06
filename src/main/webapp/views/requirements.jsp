@@ -32,12 +32,13 @@
 <html>
 <title>Genzeon Talent acquisition</title>
 <body>
+	<h2>Spring MVC Zero XML Example</h2>
 	<c:if test="${not empty msg}">
         ${msg}
     </c:if>
 	<c:choose>
-		<c:when test="${teachers != null}">
-			<h3>List of Teachers</h3>
+		<c:when test="${requirements != null}">
+			<h3>List of Requirements</h3>
 			<table id="requirements">
 				<thead>
 					<tr>
@@ -50,7 +51,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach var="t" items="${teachers}">
+					<c:forEach var="t" items="${requirements}">
 						<tr>
 							<td>${t.jobcode}</td>
 							<td>${t.experiencelevel}</td>
@@ -59,10 +60,8 @@
 							<td>${t.technology}</td>
 							<td>${t.uploadedby}</td>
 							<td><a
-								href="<%=request.getContextPath()%>/update/teacher/${t.jobcode}">Update</a>
-								&nbsp; <a
-								href="<%=request.getContextPath()%>/delete/teacher/${t.jobcode}"
-								onclick="return confirm('Do you really want to delete?')">Delete</a></td>
+								href="<%=request.getContextPath()%>/update/requirement/${t.jobcode}">Update</a>
+								&nbsp; <a href="<%=request.getContextPath()%>/delete/${t.jobcode}" 	onclick="return confirm('Do you really want to delete?')">Delete</a></td>
 								 
 						</tr>
 					</c:forEach>

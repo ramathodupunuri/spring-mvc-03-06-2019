@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <html>
 
 <head>
-<title>List of Resources</title>
+<title>Genzeon Talent acquisition</title>
 <style>
 #customers {
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -37,7 +39,6 @@
 </head>
 <body>
 
-========${resources}==========
 	<c:if test="${not empty msg}">
         ${msg}
     </c:if>
@@ -86,8 +87,8 @@
 
 
 
-						<td><a href="#">Details</a>&nbsp; <a
-								href="<%=request.getContextPath()%>/update/teacher/${resource.jobCode}">Update</a>
+						<td><a href="<%=request.getContextPath()%>/details/${resource.jobCode}">Details</a>&nbsp; 
+						<a href="<%=request.getContextPath()%>/update/teacher/${resource.jobCode}">Update</a>
 
 								&nbsp; <a
 								href="<%=request.getContextPath()%>/delete/teacher/${resource.jobCode}"

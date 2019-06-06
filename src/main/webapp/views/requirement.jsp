@@ -5,8 +5,13 @@
 <title>Genzeon Talent acquisition</title>
 <body>
 	<h2>Spring MVC Zero XML Example</h2>
-	Id : ${teacher.id}
-	<br /> Name : ${teacher.name}
-	<br /> Expertise : ${teacher.expertise}
+	<br /> JobCode : ${requirement.jobcode}
+	<br /> ExperienceLevel : ${requirement.experiencelevel}
+	<br /> SkillSet: ${requirement.skillset}
+	<br /> Technology : ${requirement.technology}
+	<br /> Department : ${requirement.department}
+	<br /> uploadBy : ${requirement.uploadby}
+	
+	
 </body>
 </html>

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Genzeon Talent acquisition</title>
 <style>
 
  */:root{--blue:#007bff;--indigo:#6610f2;--purple:#6f42c1;--pink:#e83e8c;--red:#dc3545;
@@ -56,7 +56,7 @@
             </div>
             <div class="col-md-8 py-5 border">
                 <h4 class="pb-4">Please fill with your details</h4>
-                <form method="POST" name="add_requirement" action="<%=request.getContextPath()%>/add/teacher">    
+                <form method="POST" name="add_requirement" action="<%=request.getContextPath()%>/add/requirement">    
                     <div class="form-row">
                         <div class="form-group col-md-6">
                           <input type="text" class="form-control" name="experiencelevel" value="${experiencelevel}" placeholder="Experience Level" id="experiencelevel" placeholder="Email">
