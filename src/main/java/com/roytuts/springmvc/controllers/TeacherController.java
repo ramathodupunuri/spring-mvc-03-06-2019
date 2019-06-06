@@ -91,13 +91,13 @@ public class TeacherController {
 		return "teachers";
 	}
 
-	@RequestMapping(value = "/delete/teacher/{id}")
+	/*@RequestMapping(value = "/delete/teacher/{id}")
 	public String deleteTeacher(@PathVariable int id, ModelMap teacherModel) {
 		teacherService.deleteTeacher(id);
 		List<Teacher> teachers = teacherService.getTeachers();
 		teacherModel.addAttribute("teachers", teachers);
 		teacherModel.addAttribute("msg", "Teacher delted successfully");
 		return "teachers";
-	}
+	}*/
 
 }
