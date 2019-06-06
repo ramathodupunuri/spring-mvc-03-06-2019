@@ -11,19 +11,19 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.roytuts.springmvc.mapper.ResourceDetailRowMapper;
-import com.roytuts.springmvc.mapper.TeacherRowMapper;
+import com.roytuts.springmvc.model.InterviwerVO;
 import com.roytuts.springmvc.model.ResourceVo;
-import com.roytuts.springmvc.model.Teacher;
 
 @Repository
 @Transactional
 public class ResourceDao {
-	
+
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	public ResourceVo getResource(int id) {
-		ResourceVo resource = jdbcTemplate.queryForObject("select * from teacher where id = ?", new Object[] { id },
+	public ResourceVo getResourceDetails(String pJobCode) {
+		System.out.println("pJobCode====="+pJobCode);
+		ResourceVo resource = jdbcTemplate.queryForObject("select * from resources where jobcode = ?", new Object[] { pJobCode },
 				new ResourceDetailRowMapper());
 		return resource;
 	}
@@ -52,16 +52,27 @@ public class ResourceDao {
 		parameters.put("jobCode", resourceBean.getJobCode());
 		simpleJdbcInsert.execute(parameters);
 
-		
+
 	}
 
 	public void updateResource(ResourceVo resourceBean) {
-		
+
 	}
 
 	public void deleteResource(int id) {
 		// TODO Auto-generated method stub
-		
+
+	}
+
+	public void addInterviewerToResource(String pJobCode ,InterviwerVO interviewVo ) {
+		SimpleJdbcInsert simpleJdbcInsert = new SimpleJdbcInsert(jdbcTemplate).withTableName("interviewschedules");
+		Map<String, Object> parameters = new HashMap<String, Object>();
+		parameters.put("interviewId", interviewVo.getInterviewId());
+		parameters.put("resourceId", interviewVo.getResourceId());
+		parameters.put("jobCode", interviewVo.getJobCode());
+		parameters.put("round", interviewVo.getRound());
+		parameters.put("interviewedBy", interviewVo.getInterviewedBy());
+		simpleJdbcInsert.execute(parameters);
 	}
 
 }
