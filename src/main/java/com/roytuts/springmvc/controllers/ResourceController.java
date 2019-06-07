@@ -10,15 +10,17 @@ import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.roytuts.springmvc.model.InterviwerVO;
+import com.roytuts.springmvc.model.Requirement;
 import com.roytuts.springmvc.model.ResourceVo;
-import com.roytuts.springmvc.model.Teacher;
+import com.roytuts.springmvc.service.RequirementService;
 import com.roytuts.springmvc.service.ResourceService;
-import com.roytuts.springmvc.service.TeacherService;
 
 @Controller
 public class ResourceController {
@@ -34,8 +36,8 @@ public class ResourceController {
 	@Autowired
 	private RequirementService requirementService;
 
-	@RequestMapping(value = "add")
-	public String addPage(ModelMap resourceModel) {
+	@RequestMapping(value = "add/{jobCode}")
+	public String addPage(@PathVariable String jobCode, ModelMap resourceModel) {
 		List<Requirement> requirements= requirementService.getRequirements();
 		resourceModel.addAttribute("resources", requirements);
 		return "addResource";

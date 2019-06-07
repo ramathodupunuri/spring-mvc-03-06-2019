@@ -5,22 +5,23 @@ import java.util.Properties;
 import java.util.Random;
 
 import javax.mail.Authenticator;
+import javax.mail.Message;
 import javax.mail.PasswordAuthentication;
 import javax.mail.SendFailedException;
+import javax.mail.Session;
 import javax.mail.Transport;
-import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
-import javax.mail.Session;
-import javax.mail.Message;
-import javax.mail.MessagingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.roytuts.springmvc.model.Requirement;
 import com.roytuts.springmvc.service.RequirementService;
@@ -63,8 +64,8 @@ public class RequirementController {
 			@RequestParam(value = "technology", required = true) String technology,@RequestParam(value = "department", required = true) String department, @RequestParam(value = "uploadedby", required = true) String uploadedby, ModelMap requirementModel) {
 		
 		Requirement requirement = new Requirement();
-		String jobcode = genarateJobCode(technology,department);
-		requirement.setJobcode(jobcode);
+		String jobCode = genarateJobCode(technology,department);
+		requirement.setJobCode(jobCode);
 		requirement.setExperiencelevel(experiencelevel);
 		requirement.setSkillset(skillset);
 		requirement.setTechnology(technology);
@@ -157,7 +158,6 @@ public class RequirementController {
 
 	@RequestMapping(value = "update/requirement/{jobcode}", method = RequestMethod.GET)
 	public String updatePage(@PathVariable("jobcode") String jobcode, ModelMap requirementModel) {
-		System.out.println("jobcodejobcodejobcode==="+jobcode);
 		requirementModel.addAttribute("jobcode", jobcode);
 		Requirement requirement = requirementservice.getRequirement(jobcode);
 		requirementModel.addAttribute("requirement", requirement);
@@ -165,11 +165,10 @@ public class RequirementController {
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String updateRequirement(@RequestParam(value = "jobcode", required = true) String jobcode,@RequestParam(value = "experiencelevel", required = true) String experiencelevel, @RequestParam(value = "skillset", required = true) String skillset,
+	public String updateRequirement(@RequestParam(value = "jobCode", required = true) String jobCode,@RequestParam(value = "experiencelevel", required = true) String experiencelevel, @RequestParam(value = "skillset", required = true) String skillset,
 			@RequestParam(value = "technology", required = true) String technology,@RequestParam(value = "department", required = true) String department, @RequestParam(value = "uploadedby", required = true) String uploadedby, ModelMap requirementModel) {
-		System.out.println("from updateRequirement===");
 		Requirement requirement = new Requirement();
-		requirement.setJobcode(jobcode);
+		requirement.setJobCode(jobCode);
 		requirement.setExperiencelevel(experiencelevel);
 		requirement.setSkillset(skillset);
 		requirement.setDepartment(department);
@@ -178,7 +177,6 @@ public class RequirementController {
 		requirementservice.updateRequirement(requirement);
 		List<Requirement> requirements = requirementservice.getRequirements();
 		requirementModel.addAttribute("requirements", requirements);
-		System.out.println(requirements);
 		requirementModel.addAttribute("msg", "Requirement updated successfully");
 		return "requirements";
 	}
@@ -186,7 +184,6 @@ public class RequirementController {
 	
 	@RequestMapping(value = "delete/{jobCode}" , method = RequestMethod.GET)
 	public String deleteRequirement(@PathVariable("jobCode")  String jobcode, ModelMap requirementModel) {
-		System.out.println("hi--------------");
 		requirementservice.deleteRequirement(jobcode);
 		List<Requirement> requirements = requirementservice.getRequirements();
 		requirementModel.addAttribute("requirements", requirements);
