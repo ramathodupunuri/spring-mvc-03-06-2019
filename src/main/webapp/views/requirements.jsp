@@ -32,10 +32,10 @@
 <html>
 <title>Genzeon Talent acquisition</title>
 <body>
-	<h2>Spring MVC Zero XML Example</h2>
 	<c:if test="${not empty msg}">
         ${msg}
     </c:if>
+
 	<c:choose>
 		<c:when test="${requirements != null}">
 			<h3>List of Requirements</h3>
@@ -53,15 +53,15 @@
 				<tbody>
 					<c:forEach var="t" items="${requirements}">
 						<tr>
-							<td>${t.jobcode}</td>
+						    <td>${t.jobCode}</td> 
 							<td>${t.experiencelevel}</td>
 							<td>${t.skillset}</td>
 							<td>${t.department}</td>
 							<td>${t.technology}</td>
 							<td>${t.uploadedby}</td>
-							<td><a
-								href="<%=request.getContextPath()%>/update/requirement/${t.jobcode}">Update</a>
-								&nbsp; <a href="<%=request.getContextPath()%>/delete/${t.jobcode}" 	onclick="return confirm('Do you really want to delete?')">Delete</a></td>
+							<td><a href="<%=request.getContextPath()%>/update/requirement/${t.jobCode}">Update</a>&nbsp; 
+							<a href="<%=request.getContextPath()%>/delete/${t.jobCode}" 	onclick="return confirm('Do you really want to delete?')">Delete</a>
+							<a href="<%=request.getContextPath()%>/add/${t.jobCode}">Upload Resources for this job</a></td>
 								 
 						</tr>
 					</c:forEach>
@@ -73,4 +73,3 @@
         </c:otherwise>
 	</c:choose>
 </body>
-</html>

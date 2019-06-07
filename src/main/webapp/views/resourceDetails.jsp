@@ -10,6 +10,34 @@
 <link href="<%=request.getContextPath()%>/resources/resources.css"
 	rel="stylesheet" />
 <link href="addResource.css" rel="stylesheet" />
+<style>
+#customers {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+#customers td, #customers th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+	background-color: #ddd;
+}
+
+#customers th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #4CAF50;
+	color: white;
+}
+</style>
 </head>
 <body>
 
@@ -116,13 +144,58 @@
 							<label for="resume">
 							<a href="${resourcevo.resumePath}" style="padding-left: 10px" >Resume</a></label> 
 						</p>
-						
 						<p class="pull-right" style="padding-top: 20px">
 						<a href="<%=request.getContextPath()%>/addInterviewer/${resourcevo.jobCode}">Add interviewer</a>&nbsp; 
 						</p>
 
 
 					</li>
+						<table id="customers">
+
+				<thead>
+
+					<tr>
+
+						<th>JobCode</th>
+
+						<th>InterviewId</th>
+
+						<th>ResourceId</th>
+
+						<th>Round</th>
+
+						<th>InterviewedBy</th>
+
+						<th>FinalStatus</th>
+						<th></th>
+					</tr>
+
+				</thead>
+
+				<tbody>
+
+					<c:forEach var="inteview" items="${inteviewers}">
+
+						<tr>
+
+							<td>${inteview.jobCode}</td>
+
+							<td>${inteview.interviewId}</td>
+
+							<td>${InterviewId.resourceId}</td>
+
+							<td>${InterviewId.round}</td>
+							<td>${InterviewId.interviewedBy}</td>
+							<td>${InterviewId.status}</td>
+
+
+						</tr>
+
+					</c:forEach>
+
+				</tbody>
+
+			</table>
 
 					<li><div class="divider"></div></li>
 

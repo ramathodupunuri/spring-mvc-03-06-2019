@@ -30,8 +30,9 @@
 }
 </style>
 <html>
-<title>Genzeon Talent acquisition</title>
+<title>Spring MVC Zero XML Example</title>
 <body>
+	<h2>Spring MVC Zero XML Example</h2>
 	<c:if test="${not empty msg}">
         ${msg}
     </c:if>

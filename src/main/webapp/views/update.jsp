@@ -38,7 +38,7 @@
 		<table id="requirements">
 				<thead>
 					<tr>
-						<th>Jobcode</th>
+						<th>JobCode</th>
 						<th>ExperienceLevel</th>
 						<th>SkillSet</th>
 						<th>Department</th>
@@ -48,7 +48,7 @@
 				</thead>
 				<tbody>
 						<tr>
-							<td> <input name="jobcode" value="${requirement.jobcode}" type="text"  /> </td>
+							<td> <input name="jobCode" value="${requirement.jobCode}" type="text"  /> </td>
 							<td><input	name="experiencelevel" value="${requirement.experiencelevel}" type="text" /> </td>
 							<td> <textarea name="skillset"><c:out value="${requirement.skillset}" /> </textarea></td>
 							<td><input name="department" value="${requirement.department}" type="text"/></td>

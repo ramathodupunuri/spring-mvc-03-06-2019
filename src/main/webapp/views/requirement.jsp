@@ -4,7 +4,6 @@
 <html>
 <title>Genzeon Talent acquisition</title>
 <body>
-	<h2>Spring MVC Zero XML Example</h2>
 	<br /> JobCode : ${requirement.jobcode}
 	<br /> ExperienceLevel : ${requirement.experiencelevel}
 	<br /> SkillSet: ${requirement.skillset}

@@ -41,7 +41,7 @@
 			<table id="requirements">
 				<thead>
 					<tr>
-						<th>Jobcode</th>
+						<th>JobCode</th>
 						<th>ExperienceLevel</th>
 						<th>SkillSet</th>
 						<th>Department</th>
@@ -52,7 +52,7 @@
 				<tbody>
 					<c:forEach var="t" items="${requirements}">
 						<tr>
-							<td>${t.jobcode}</td>
+							<td>${t.jobCode}</td>
 							<td>${t.experiencelevel}</td>
 							<td>${t.skillset}</td>
 							<td>${t.department}</td>
