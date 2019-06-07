@@ -12,7 +12,7 @@ public class RequirementRowMapper implements RowMapper<Requirement> {
 	@Override
 	public Requirement mapRow(ResultSet rs, int row) throws SQLException {
 		Requirement requirement = new Requirement();
-		requirement.setJobcode(rs.getString("jobcode"));
+		requirement.setJobCode(rs.getString("jobcode"));
 		requirement.setExperiencelevel(rs.getString("experiencelevel"));
 		requirement.setSkillset(rs.getString("skillset"));
 		requirement.setTechnology(rs.getString("technology"));
