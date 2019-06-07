@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <html>
@@ -51,7 +51,7 @@
 
 					<tr>
 
-						<th>Jobcode</th>
+						<th>JobCode</th>
 
 						<th>FirstName</th>
 
@@ -81,19 +81,18 @@
 
 							<td>${resource.technology}</td>
 
-							<td><p><a href="${resource.resumePath}">resume</a></p></td>
+							<td><p>
+									<a href="${resource.resumePath}">resume</a>
+								</p></td>
 
 							<td>${resource.finalStatus}</td>
 
 
 
-						<td><a href="<%=request.getContextPath()%>/details/${resource.jobCode}">Details</a>&nbsp; 
-						<a href="<%=request.getContextPath()%>/update/teacher/${resource.jobCode}">Update</a>
+							<td><a href="<%=request.getContextPath()%>/details/${resource.jobCode}">Details</a>&nbsp;
 
-								&nbsp; <a
-								href="<%=request.getContextPath()%>/delete/teacher/${resource.jobCode}"
-								onclick="return confirm('Do you really want to delete?')">Delete</a>
-							</td> 
+								&nbsp; <a href="<%=request.getContextPath()%>/deleteResource/${resource.jobCode}" onclick="return confirm('Do you really want to delete?')">Delete</a>
+							</td>
 
 
 
