@@ -27,8 +27,8 @@ public class ResourceService {
 		resourceDao.updateResource(resource);
 	}
 
-	public void deleteResource(final int id) {
-		resourceDao.deleteResource(id);
+	public void deleteResource(final String jobcode)  {
+		resourceDao.deleteResource(jobcode);
 	}
 
 	public ResourceVo ResourcesDetails(String pJobCode) {
@@ -38,6 +38,11 @@ public class ResourceService {
 
 	public void addInterviewerToResource(String pJobCode , InterviwerVO interviewVo) {
 		resourceDao.addInterviewerToResource(pJobCode, interviewVo);
+	}
+
+	public List<InterviwerVO> getInteviewers(String jobCode) {
+		// TODO Auto-generated method stub
+		return resourceDao.getInterviwersDetails();
 	}
 
 
