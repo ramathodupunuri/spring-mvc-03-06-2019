@@ -182,11 +182,11 @@
 
 							<td>${inteview.interviewId}</td>
 
-							<td>${InterviewId.resourceId}</td>
+							<td>${inteview.resourceId}</td>
 
-							<td>${InterviewId.round}</td>
-							<td>${InterviewId.interviewedBy}</td>
-							<td>${InterviewId.status}</td>
+							<td>${inteview.round}</td>
+							<td>${inteview.interviewedBy}</td>
+							<td>${inteview.status}</td>
 
 
 						</tr>
