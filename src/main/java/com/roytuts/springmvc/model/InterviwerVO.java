@@ -4,9 +4,16 @@ public class InterviwerVO {
 	
 	int interviewId;
 	int resourceId;
-	int jobCode;
+	String jobCode;
 	int round;
 	String interviewedBy;
+	String status;
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public int getInterviewId() {
 		return interviewId;
 	}
@@ -19,10 +26,10 @@ public class InterviwerVO {
 	public void setResourceId(int resourceId) {
 		this.resourceId = resourceId;
 	}
-	public int getJobCode() {
+	public 	String getJobCode() {
 		return jobCode;
 	}
-	public void setJobCode(int jobCode) {
+	public void setJobCode(	String jobCode) {
 		this.jobCode = jobCode;
 	}
 	public int getRound() {

@@ -2,17 +2,17 @@ package com.roytuts.springmvc.model;
 
 public class Requirement {
 
-	private String jobcode;
+	private String jobCode;
 	private String experiencelevel;
 	private String skillset;
 	private String technology;
 	private String department;
 	private String uploadedby;
-	public String getJobcode() {
-		return jobcode;
+	public String getJobCode() {
+		return jobCode;
 	}
-	public void setJobcode(String jobcode) {
-		this.jobcode = jobcode;
+	public void setJobCode(String jobcode) {
+		this.jobCode = jobcode;
 	}
 	public String getExperiencelevel() {
 		return experiencelevel;
