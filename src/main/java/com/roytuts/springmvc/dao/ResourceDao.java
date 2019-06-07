@@ -10,6 +10,7 @@ import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.roytuts.springmvc.mapper.InterviwerRowMapper;
 import com.roytuts.springmvc.mapper.ResourceDetailRowMapper;
 import com.roytuts.springmvc.model.InterviwerVO;
 import com.roytuts.springmvc.model.ResourceVo;
@@ -22,7 +23,6 @@ public class ResourceDao {
 	private JdbcTemplate jdbcTemplate;
 
 	public ResourceVo getResourceDetails(String pJobCode) {
-		System.out.println("pJobCode====="+pJobCode);
 		ResourceVo resource = jdbcTemplate.queryForObject("select * from resources where jobcode = ?", new Object[] { pJobCode },
 				new ResourceDetailRowMapper());
 		return resource;
@@ -59,8 +59,8 @@ public class ResourceDao {
 
 	}
 
-	public void deleteResource(int id) {
-		// TODO Auto-generated method stub
+	public void deleteResource(final String jobcode)  {
+		jdbcTemplate.update("delete from resources where JobCode = ?", new Object[] { jobcode });
 
 	}
 
@@ -69,10 +69,16 @@ public class ResourceDao {
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("interviewId", interviewVo.getInterviewId());
 		parameters.put("resourceId", interviewVo.getResourceId());
-		parameters.put("jobCode", interviewVo.getJobCode());
-		parameters.put("round", interviewVo.getRound());
+		parameters.put("jobCode", pJobCode);
+		parameters.put("status", interviewVo.getStatus());
 		parameters.put("interviewedBy", interviewVo.getInterviewedBy());
+		parameters.put("round", interviewVo.getRound());
 		simpleJdbcInsert.execute(parameters);
+	}
+
+	public List<InterviwerVO> getInterviwersDetails() {
+		List<InterviwerVO> interviewers = jdbcTemplate.query("select * from interviewschedules", new InterviwerRowMapper());
+		return interviewers;
 	}
 
 }

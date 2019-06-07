@@ -37,7 +37,7 @@ public class RequirementDao {
 		SimpleJdbcInsert simpleJdbcInsert = new SimpleJdbcInsert(jdbcTemplate).withTableName("jobdetails");
 		Map<String, Object> parameters = new HashMap<String, Object>();
 		parameters.put("uploadedby", requirement.getUploadedby());
-		parameters.put("jobcode", requirement.getJobcode());
+		parameters.put("jobcode", requirement.getJobCode());
 		parameters.put("department", requirement.getDepartment());
 		parameters.put("experiencelevel", requirement.getExperiencelevel());
 		parameters.put("Skillset", requirement.getSkillset());
@@ -48,7 +48,7 @@ public class RequirementDao {
 
 	public void updateRequirement(final Requirement requirement) {
 		jdbcTemplate.update("update jobdetails set ExperienceLevel = ?, SkillSet = ?,Technology = ?, Department = ?,uploadedBy = ? where JobCode = ?",
-				new Object[] { requirement.getExperiencelevel(), requirement.getSkillset(), requirement.getTechnology(),requirement.getDepartment(),requirement.getUploadedby(),requirement.getJobcode()});
+				new Object[] { requirement.getExperiencelevel(), requirement.getSkillset(), requirement.getTechnology(),requirement.getDepartment(),requirement.getUploadedby(),requirement.getJobCode()});
 	}
 
 	public void deleteRequirement(final String jobcode) {
